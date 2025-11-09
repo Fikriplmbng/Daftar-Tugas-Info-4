@@ -363,3 +363,31 @@
         save, load
       };
     })();
+    
+    const btn = document.getElementById("forumButton");
+
+let mouseX, mouseY, btnX, btnY, dragging = false;
+
+btn.addEventListener("mousedown", function(e) {
+    dragging = true;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    btnX = btn.offsetLeft;
+    btnY = btn.offsetTop;
+});
+
+document.addEventListener("mousemove", function(e) {
+    if (!dragging) return;
+
+    let dx = e.clientX - mouseX;
+    let dy = e.clientY - mouseY;
+
+    btn.style.left = btnX + dx + "px";
+    btn.style.top = btnY + dy + "px";
+    btn.style.right = "auto";
+    btn.style.bottom = "auto";
+});
+
+document.addEventListener("mouseup", function() {
+    dragging = false;
+});
