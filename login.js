@@ -11,8 +11,9 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     }
 
     if (user === "admin" && pass === "admin123") {
-        window.location.href = "Dashboard.html";
+        window.location.href = "dashboard.html";
     } else {
         error.textContent = "Username atau password salah.";
     }
 });
+
